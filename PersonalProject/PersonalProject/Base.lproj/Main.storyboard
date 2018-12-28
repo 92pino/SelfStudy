@@ -71,10 +71,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="if2-HY-T62">
             <objects>
-                <viewController storyboardIdentifier="LoginPage" id="vFW-iX-FsW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginPage" id="vFW-iX-FsW" customClass="SecondViewController" customModule="PersonalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hvt-bB-BBB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,6 +88,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxk-bN-Gbe">
                                 <rect key="frame" x="10" y="20" width="52" height="30"/>
                                 <state key="normal" title="뒤로가기"/>
+                                <connections>
+                                    <action selector="BackToMain:" destination="vFW-iX-FsW" eventType="touchUpInside" id="g7Z-Xy-Md6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -104,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ang-qK-Fqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="904.79999999999995" y="26.53673163418291"/>
+            <point key="canvasLocation" x="1417" y="15"/>
         </scene>
     </scenes>
 </document>
