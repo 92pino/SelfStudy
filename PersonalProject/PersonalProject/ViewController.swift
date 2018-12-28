@@ -32,5 +32,14 @@ class ViewController: UIViewController {
         
         self.present(uvc, animated: true)
     }
+    @IBAction func GoToSetting(_ sender: Any) {
+        guard let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") else {
+            return
+        }
+        
+        self.present(settingVC, animated: false)
+        
+    }
+    
 }
 

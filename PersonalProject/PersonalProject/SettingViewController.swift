@@ -1,0 +1,13 @@
+//
+//  SettingViewController.swift
+//  PersonalProject
+//
+//  Created by JinBae Jeong on 28/12/2018.
+//  Copyright © 2018 pino. All rights reserved.
+//
+
+import UIKit
+
+class SettingViewController: UIViewController {
+    
+}
