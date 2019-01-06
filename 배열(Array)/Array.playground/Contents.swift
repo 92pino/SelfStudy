@@ -131,3 +131,57 @@ if genres.contains("rock") {
     print("rock이 저장되어있지 않습니다.")
 }
 
+// 집합 연산
+
+var oddDigits : Set = [1, 3, 5, 7, 9] // 홀수 집합
+var evenDigits : Set = [0, 2, 4, 6, 8] // 짝수 집합
+let primeDigits : Set = [2, 3, 5, 7] // 소수 집합
+
+// 교집합
+// intersection(_ :)
+
+oddDigits.intersection(evenDigits).sorted()
+// oddDigits 와 evenDigits의 교집합이 없으므로 빈 배열이 sorted된다.
+
+// 교집합을 제외한 집합
+// symmetricDifference(_ :)
+
+oddDigits.symmetricDifference(primeDigits).sorted()
+// oddDigits와 evenDigits의 교집합이 없으므로 1, 2, 9가 배열에 sorted된다.
+
+// 합집합
+// union(_ :)
+
+oddDigits.union(evenDigits).sorted()
+// oddDigits와 evenDigits의 합집합은 0,1,2,3,4,5,6,7,8,9가 배열에 sorted된다.
+
+// 차집합
+// subtract(_ :)
+
+oddDigits.subtract(primeDigits)
+oddDigits.sorted()
+
+// 부분집합과 포함관계 판단 연산
+
+// isSubset(of:)
+// 주어진 집합의 값 전체가 특정 집합에 포함되는지를 판단하여 true, false를 반환
+
+// isSuperset(of:)
+// 주어진 집합이 특정 집합의 모든 값을 포함하는지를 판단하여 true, false를 반환
+// isSubset과는 반대, 집합이 다른 집합의 상위집합 역할을 하는가에 대한 판단
+
+// isStrictSubset, isStrictSuperset
+
+// isDisjoint(with:)
+// 두 집합 사이의 공통 값을 확인하여 없을 때 true, 1개라도 있을 경우 false를 반환
+
+let A : Set = [1, 3, 5, 7, 9]
+let B : Set = [3, 5]
+let C : Set = [3, 5]
+let D : Set = [2, 4, 6]
+
+B.isSubset(of: A)   // true
+A.isSuperset(of: B) // true
+C.isStrictSubset(of: A) // true
+C.isStrictSuperset(of: B)   // false
+A.isDisjoint(with: D)   // true
