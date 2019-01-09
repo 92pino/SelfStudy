@@ -185,3 +185,70 @@ A.isSuperset(of: B) // true
 C.isStrictSubset(of: A) // true
 C.isStrictSuperset(of: B)   // false
 A.isDisjoint(with: D)   // true
+
+// 딕셔너리
+// [키 : 데이터, 키: 데이터, ...]
+
+//var capital = ["KR" : "Seoul", "EN" : "London", "FR" : "Paris"]
+//capital["KR"]
+
+
+// 딕셔너리 선언과 초기화
+//Dictionary <키의 타입, 값의 타입> ()
+
+Dictionary<String, Int>()
+Dictionary<String, String>()
+Dictionary<String, AnyObject>()
+Dictionary<Character, String>()
+
+// 딕셔너리 간겷한 형식
+// [키로 사용할 타입 : 값으로 사용할 타입] ()
+
+[String : Int]()
+[String : String]()
+
+var capital = Dictionary<String, String>()
+
+capital["KR"] = "Seoul"
+capital
+
+var newCapital = [String : String]()
+newCapital["JP"] = "Tokyo"
+
+// 딕셔너리 동적 할당
+// updateValue(_:forKey:)
+//<딕셔너리 객체>, updateValue(<저장할 데이터>, forKey:<데이터를 참조 및 저장하는 데 사용할 키>)
+
+newCapital.updateValue("Seoul", forKey: "KR")
+newCapital.updateValue("France", forKey: "Paris")
+
+// 딕셔너리 아이템 삭제하는법 1
+// 키 값에 nil을 할당
+newCapital["KR"] = nil
+newCapital
+
+// 딕셔너리 아이템 삭제하는법 2
+// removeValue(forKey:)
+
+newCapital.removeValue(forKey: "JP")
+newCapital
+
+newCapital.updateValue("Ottawa", forKey: "CA")
+newCapital.updateValue("Beijing", forKey: "CN")
+
+newCapital["CN"] = nil
+
+if let removedValue = newCapital.removeValue(forKey: "CA") {
+    print("삭제된 값은 \(removedValue)입니다")
+} else {
+    print("아무것도 삭제되지 않았습니다.")
+}
+
+newCapital.updateValue("Sapporo", forKey: "JP")
+Optional("Sapporo")
+
+for row in newCapital {
+    let (key, value) = row
+    print("\(key) : \(value)")
+}
+
