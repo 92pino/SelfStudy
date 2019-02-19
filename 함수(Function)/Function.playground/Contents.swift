@@ -308,3 +308,42 @@ func calc(_ operand: String) -> (Int, Int) -> Int {
 
 let c = calc("+")
 c(3,4)
+
+// 3. 함수의 인자값으로 함수를 사용할 수 있음
+func incr(param: Int) -> Int {
+    return param + 1
+}
+
+func broker(base: Int, function fn: (Int) -> Int) -> Int {
+    return fn(base)
+}
+
+broker(base: 3, function: incr)
+
+// 콜백 함수
+
+func successThrough() {
+    print("연산 처리가 성공했습니다.")
+}
+
+func failThrough() {
+    print("처리 과정에 오류가 발생하였습니다.")
+}
+
+func divide(base: Int, success sCallBack: () -> Void, fail fCallBack: () -> Void) -> Int {
+    guard base != 0 else {
+        fCallBack()
+        return 0
+    }
+    defer {
+        // defer 구문
+        // 작성된 위치와 순서에 상관없이 함수가 종료되기 전에 실행된다.
+        // defer를 읽기 전 함수의 실행이 종료될 경우 defer 구문은 실행되지 않는다.
+        // 여러개의 defer 블록이 있을경우 마지막 defer부터 역순으로 실행
+        // 중첩 사용이 가능하며 바깥 -> 안쪽 순으로 실행(가장 안쪽에 있는 블록이 마지막에 실행)
+        sCallBack()
+    }
+    return 100 / base
+}
+
+divide(base: 0, success: successThrough, fail: failThrough)
