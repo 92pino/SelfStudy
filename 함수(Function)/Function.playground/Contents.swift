@@ -347,3 +347,30 @@ func divide(base: Int, success sCallBack: () -> Void, fail fCallBack: () -> Void
 }
 
 divide(base: 0, success: successThrough, fail: failThrough)
+
+// 함수의 중첩
+func outer(base: Int) -> String {
+    
+    func inner(inc: Int) -> String {
+        return "\(inc)를 반환합니다."
+    }
+    
+    let result = inner(inc: base + 1)
+    return result
+}
+
+outer(base: 3)
+
+
+func basic(param: Int) -> (Int) -> Int {
+    let value = param + 20
+    
+    func append(add: Int) -> Int {
+        return value + add
+    }
+    
+    return append
+}
+
+let result = basic(param: 10)
+result(10)
