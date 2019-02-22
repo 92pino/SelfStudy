@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // 이 부분은 프로세서의 진행을 멈춰 시작 화면이 표시되는 시간을 늘려주는 역할을 합니다.
+        sleep(10)
         return true
     }
 

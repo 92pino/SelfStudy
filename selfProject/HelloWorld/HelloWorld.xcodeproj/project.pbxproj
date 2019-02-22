@@ -12,6 +12,7 @@
 		61BDE467221FDE16000687EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61BDE465221FDE16000687EF /* Main.storyboard */; };
 		61BDE469221FDE17000687EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BDE468221FDE17000687EF /* Assets.xcassets */; };
 		61BDE46C221FDE17000687EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61BDE46A221FDE17000687EF /* LaunchScreen.storyboard */; };
+		61BDE474221FEB76000687EF /* LaunchScreen2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61BDE473221FEB76000687EF /* LaunchScreen2.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		61BDE468221FDE17000687EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61BDE46B221FDE17000687EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61BDE46D221FDE17000687EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61BDE473221FEB76000687EF /* LaunchScreen2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen2.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				61BDE468221FDE17000687EF /* Assets.xcassets */,
 				61BDE46A221FDE17000687EF /* LaunchScreen.storyboard */,
 				61BDE46D221FDE17000687EF /* Info.plist */,
+				61BDE473221FEB76000687EF /* LaunchScreen2.storyboard */,
 			);
 			path = HelloWorld;
 			sourceTree = "<group>";
@@ -122,6 +125,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61BDE474221FEB76000687EF /* LaunchScreen2.storyboard in Resources */,
 				61BDE46C221FDE17000687EF /* LaunchScreen.storyboard in Resources */,
 				61BDE469221FDE17000687EF /* Assets.xcassets in Resources */,
 				61BDE467221FDE16000687EF /* Main.storyboard in Resources */,
