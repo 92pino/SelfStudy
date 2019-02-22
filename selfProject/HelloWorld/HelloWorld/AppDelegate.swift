@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  PersonalProject
+//  HelloWorld
 //
-//  Created by JinBae Jeong on 28/12/2018.
-//  Copyright © 2018 pino. All rights reserved.
+//  Created by JinBae Jeong on 22/02/2019.
+//  Copyright © 2019 pino. All rights reserved.
 //
 
 import UIKit
