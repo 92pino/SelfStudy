@@ -470,3 +470,54 @@ func order(s1: Int, s2: Int) -> Bool {
 //        return false
 //    }
 //}
+/*
+func avg(score: Int...) -> Double {
+    var total = 0
+    for r in score {
+        total += r
+    }
+    return(Double(total) / Double(score.count))
+}
+
+print(avg(score: 10, 20, 30, 40))
+*/
+
+func echo(message: String, newline: Bool = true) {
+    if newline == true {
+        print(message, true)
+    } else {
+        print(message, false)
+    }
+}
+echo(message: "테스트입니다.")
+
+
+typealias infoResult = (h: Int, g: Character, n: String)
+
+func getUserInfo() -> infoResult {
+    let gender: Character = "M"
+    let height = 180
+    let name = "Pino"
+    
+    return (height, gender, name)
+}
+
+let info = getUserInfo()
+
+func incrementBy(base: Int) -> Int {
+    var base = base
+    base += 1
+    return base
+}
+incrementBy(base: 10)
+
+func descAge(name: String, _ paramAge: Int) -> String {
+    var name = name
+    var paramAge = paramAge
+    
+    name = name + "씨"
+    paramAge += 1
+    
+    return "\(name)의 내년 나이는 \(paramAge)세입니다"
+}
+descAge(name: "Pino", 28)
