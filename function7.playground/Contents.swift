@@ -47,6 +47,8 @@ func divide(_ a: Int, _ b: Int) -> Int? {
     
     return a / b
 }
-let result1 = divide(20, 20)
+let result1 = divide(20, g0)
 let result2 = divide(10, 0)
 print("나누기 결과 : \(result1), \(result2)")
+
+
