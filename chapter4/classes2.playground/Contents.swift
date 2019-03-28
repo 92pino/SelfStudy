@@ -100,3 +100,36 @@ cinema.width = 2048
 hd.width
 cinema.width
 print("\(cinema.width)")
+
+if person01 == person02 {
+    print("person01과 person02는 같습니다.")
+} else {
+    print("person01과 person02는 다릅니다.")
+}
+
+if person03 == person04 {
+    print("person03과 person04는 같습니다.")
+} else {
+    print("person03과 person04는 다릅니다.")
+}
+
+class Dog {
+    var name: String?
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    func walk() {
+        print("\(name) 강아지가 걸어갑니다.")
+    }
+}
+
+var dog1 = Dog(name: "만두")
+var dog2 = Dog(name: "까불")
+
+if dog1 === dog2 {
+    print("dog1과 dog2는 같습니다.")
+} else {
+    print("dog1과 dog2는 다릅니다.")
+}
