@@ -14,9 +14,11 @@ class LoginViewController: UIViewController {
     let loginView = UIView()
     let idTextField = UITextField()
     let passwordTextField = UITextField()
+    let signUpButton = UIButton(type: .system)
     let loginButton = UIButton(type: .system)
     
     var userModel: UserModel = UserModel()
+    var slidingUpViewForEmailPassword = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,7 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         setFrame()
         autoLayout()
+    
     }
     
     func setFrame(){
@@ -43,15 +46,30 @@ class LoginViewController: UIViewController {
         idTextField.clearButtonMode = .whileEditing
         idTextField.borderStyle = .roundedRect
         idTextField.layer.cornerRadius = 15
+        idTextField.keyboardType = UIKeyboardType.emailAddress
+        // MARK: - 키보드 색상 어두운걸로 적용
+        idTextField.keyboardAppearance = UIKeyboardAppearance.dark
+        // MARK: - 문자를 입력하지 않았을때 리턴키 비활성화 적용
+        idTextField.enablesReturnKeyAutomatically = true
         
         passwordTextField.placeholder = "비밀번호를 입력해주세요"
         passwordTextField.text = ""
         passwordTextField.borderStyle = .roundedRect
         passwordTextField.layer.cornerRadius = 15
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.keyboardAppearance = UIKeyboardAppearance.dark
+        passwordTextField.enablesReturnKeyAutomatically = true
         
         loginView.addSubview(idTextField)
         loginView.addSubview(passwordTextField)
+        
+        self.idTextField.delegate = self
+        self.passwordTextField.delegate = self
+
+    }
+    
+    func goToSignUp(){
+        
     }
     
     func buttonEvent(){
@@ -72,12 +90,19 @@ class LoginViewController: UIViewController {
         let isLoginSuccess: Bool = userModel.findUser(inputID: id, inputPassword: password)
         
         if isLoginSuccess == true {
+            
             let alertController = UIAlertController(title: "로그인 성공", message: "Welcome!!!", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "확인", style: .destructive, handler: { (alert) in
+            let tabBarViewController = TabBarViewController()
+            
+            let okAction = UIAlertAction(title: "확인", style: .destructive, handler: { [weak self] (alert) in
                 print("버튼이 눌림")
+                print(tabBarViewController)
+                self?.present(tabBarViewController, animated: true)
             })
             alertController.addAction(okAction)
             self.present(alertController, animated: true, completion: nil)
+            
+            
             
             print("로그인 성공")
         } else {
@@ -154,3 +179,29 @@ class LoginViewController: UIViewController {
 
 }
 
+extension LoginViewController: UITextFieldDelegate {
+    // MARK: - 텍스트 필드의 편집이 시작된 후 호출 method
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("택스트 필드의 편집이 시작되었습니다.")
+        
+        // MARK: - 뷰위치 위로 이동 구현
+        guard slidingUpViewForEmailPassword == false else { return }
+        UIView.animate(withDuration: 0.3) {
+            self.view.frame.origin.y -= 350
+            self.slidingUpViewForEmailPassword = true
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        print("텍스트 필드의 리턴키가 눌러졌습니다.")
+        
+        // MARK: - 뷰위치 아래로 이동 구현
+        UIView.animate(withDuration: 0.3) {
+            self.view.frame.origin.y += 350
+        }
+        slidingUpViewForEmailPassword = false
+        return true
+    }
+
+}

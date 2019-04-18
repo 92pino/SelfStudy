@@ -36,9 +36,8 @@
       "scale" : "2x"
     },
     {
-      "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "appIcon-1.png",
+      "size" : "60x60",
       "scale" : "3x"
     },
     {
@@ -87,9 +86,8 @@
       "scale" : "2x"
     },
     {
-      "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "appIcon.png",
+      "size" : "1024x1024",
       "scale" : "1x"
     }
   ],

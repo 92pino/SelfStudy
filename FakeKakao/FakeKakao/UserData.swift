@@ -11,6 +11,7 @@ import Foundation
 final class UserModel {
     //저장된 계정 정보
     var model: [User] = [
+        User(id: "A", password: "1"),
         User(id: "admin", password: "11112222"),
         User(id: "pino", password: "abcdefg"),
         User(id: "pinkeb", password: "pinkeb")
