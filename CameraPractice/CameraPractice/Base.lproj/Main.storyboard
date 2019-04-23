@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CameraPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IAW-ZN-ype">
+                                <rect key="frame" x="0.0" y="44" width="414" height="618"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VqQ-bg-r95">
+                                <rect key="frame" x="0.0" y="662" width="414" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shS-N3-5II">
+                                        <rect key="frame" x="50" y="50" width="100" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Z3O-OO-I7o"/>
+                                            <constraint firstAttribute="height" constant="30" id="tqd-6H-fSE"/>
+                                        </constraints>
+                                        <state key="normal" title="사진 촬영"/>
+                                        <connections>
+                                            <action selector="btnCaptureImageFromCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nre-j9-1Dk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uup-0v-xTV">
+                                        <rect key="frame" x="264" y="50" width="100" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="8gK-GI-RJG"/>
+                                            <constraint firstAttribute="width" constant="100" id="uoY-KW-Su8"/>
+                                        </constraints>
+                                        <state key="normal" title="비디오 촬영"/>
+                                        <connections>
+                                            <action selector="btnRecordVideoFromCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tvd-0K-rso"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBu-am-cku">
+                                        <rect key="frame" x="50" y="120" width="100" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="18y-Jh-AuV"/>
+                                            <constraint firstAttribute="height" constant="30" id="dzW-Ui-B8D"/>
+                                        </constraints>
+                                        <state key="normal" title="사진 불러오기"/>
+                                        <connections>
+                                            <action selector="btnLoadImageFromLibray:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pIg-et-OPf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBi-sT-BUY">
+                                        <rect key="frame" x="264" y="120" width="100" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Iq9-jd-wYc"/>
+                                            <constraint firstAttribute="width" constant="100" id="hnj-Fm-AQn"/>
+                                        </constraints>
+                                        <state key="normal" title="비디오 불러오기"/>
+                                        <connections>
+                                            <action selector="btnLoadVideoFromLibrary:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l9a-kX-dWm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="tBi-sT-BUY" secondAttribute="trailing" constant="50" id="IW5-QG-EdY"/>
+                                    <constraint firstItem="uup-0v-xTV" firstAttribute="top" secondItem="VqQ-bg-r95" secondAttribute="top" constant="50" id="JGD-2T-ePf"/>
+                                    <constraint firstItem="shS-N3-5II" firstAttribute="top" secondItem="VqQ-bg-r95" secondAttribute="top" constant="50" id="c59-oV-gag"/>
+                                    <constraint firstItem="HBu-am-cku" firstAttribute="leading" secondItem="VqQ-bg-r95" secondAttribute="leading" constant="50" id="daN-Zx-zTO"/>
+                                    <constraint firstItem="shS-N3-5II" firstAttribute="leading" secondItem="VqQ-bg-r95" secondAttribute="leading" constant="50" id="eDh-bD-qqs"/>
+                                    <constraint firstAttribute="bottom" secondItem="HBu-am-cku" secondAttribute="bottom" constant="50" id="p5t-uC-XuQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="tBi-sT-BUY" secondAttribute="bottom" constant="50" id="up1-EZ-grD"/>
+                                    <constraint firstAttribute="trailing" secondItem="uup-0v-xTV" secondAttribute="trailing" constant="50" id="xfO-oh-V7Y"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VqQ-bg-r95" secondAttribute="trailing" id="3Qv-ue-SS1"/>
+                            <constraint firstItem="VqQ-bg-r95" firstAttribute="top" secondItem="IAW-ZN-ype" secondAttribute="bottom" id="8Fc-aX-Cfs"/>
+                            <constraint firstItem="VqQ-bg-r95" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9zK-nu-J5f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VqQ-bg-r95" secondAttribute="bottom" id="J6R-yw-sAg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IAW-ZN-ype" secondAttribute="trailing" id="PQ1-IA-fVF"/>
+                            <constraint firstItem="IAW-ZN-ype" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aq4-Oq-zYK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IAW-ZN-ype" secondAttribute="bottom" constant="200" id="q4l-Bq-miJ"/>
+                            <constraint firstItem="IAW-ZN-ype" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vxp-Wq-MVW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="imgView" destination="IAW-ZN-ype" id="8Ng-D6-X0S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

@@ -128,6 +128,8 @@ class LoginViewController: UIViewController {
         }
     }
     
+    var loginViewPriority: NSLayoutConstraint?
+    
     // 유저 정보 체크
 
     func autoLayout(){
@@ -187,7 +189,7 @@ extension LoginViewController: UITextFieldDelegate {
         // MARK: - 뷰위치 위로 이동 구현
         guard slidingUpViewForEmailPassword == false else { return }
         UIView.animate(withDuration: 0.3) {
-            self.view.frame.origin.y -= 350
+            loginView.
             self.slidingUpViewForEmailPassword = true
         }
     }
