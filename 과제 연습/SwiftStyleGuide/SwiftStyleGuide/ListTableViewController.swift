@@ -22,13 +22,15 @@ final class ListViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "List")
         view.addSubview(tableView)
+        
+        
+        viewControllers = [
+            NamingViewController()
+        ]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewControllers = [
-            NamingViewController()
-        ]
     }
 }
 
