@@ -21,11 +21,22 @@ class ThirdViewController: UIViewController {
   }
   
   @objc func changeView(sender: Notification){
-    guard let userInfo = sender.userInfo as? [String: UIColor] else { return }
+    guard let userInfo = sender.userInfo as? [String: String] else { return }
     var bgColor = userInfo["txt"]!
-    print("type : ", type(of: bgColor))
-    print(bgColor)
-    view.backgroundColor = 
+    switch bgColor {
+    case "red":
+      view.backgroundColor = .red
+    case "orange":
+      view.backgroundColor = .orange
+    case "yellow":
+      view.backgroundColor = .yellow
+    case "green":
+      view.backgroundColor = .green
+    case "blue":
+      view.backgroundColor = .blue
+    default:
+      view.backgroundColor = .lightGray
+    }
     
     
     print("run")

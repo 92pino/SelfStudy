@@ -58,7 +58,7 @@ class FirstViewController: UIViewController {
 
 extension FirstViewController: UITextFieldDelegate {
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    var txt = UIColor(named: textField.text!)
+    var txt = textField.text!
     notiCenter.post(name: Notification.Name("sendTextField"), object: nil, userInfo: ["txt" : txt])
     navigationController?.pushViewController(thirdVC, animated: true)
     
