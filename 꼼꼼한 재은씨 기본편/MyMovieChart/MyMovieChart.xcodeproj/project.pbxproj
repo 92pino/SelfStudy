@@ -17,6 +17,7 @@
 		61E01D752282FC2B00045833 /* secret.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61E01D722282FC2B00045833 /* secret.jpg */; };
 		61E01D762282FC2B00045833 /* darknight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61E01D732282FC2B00045833 /* darknight.jpg */; };
 		61E01D772282FC2B00045833 /* rain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61E01D742282FC2B00045833 /* rain.jpg */; };
+		61E01D79228305AE00045833 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 61E01D78228305AE00045833 /* Data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		61E01D722282FC2B00045833 /* secret.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = secret.jpg; path = Resources/secret.jpg; sourceTree = SOURCE_ROOT; };
 		61E01D732282FC2B00045833 /* darknight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = darknight.jpg; path = Resources/darknight.jpg; sourceTree = SOURCE_ROOT; };
 		61E01D742282FC2B00045833 /* rain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = rain.jpg; path = Resources/rain.jpg; sourceTree = SOURCE_ROOT; };
+		61E01D78228305AE00045833 /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				61E01D6E2282E0AA00045833 /* Model */,
 				61E01D582282DD7B00045833 /* AppDelegate.swift */,
 				61E01D6A2282DEE400045833 /* ListViewController.swift */,
+				61E01D78228305AE00045833 /* Data.json */,
 				61E01D6F2282E8D600045833 /* CustomTableViewCell.swift */,
 				61E01D5C2282DD7B00045833 /* Main.storyboard */,
 				61E01D5F2282DD7C00045833 /* Assets.xcassets */,
@@ -157,6 +160,7 @@
 				61E01D772282FC2B00045833 /* rain.jpg in Resources */,
 				61E01D602282DD7C00045833 /* Assets.xcassets in Resources */,
 				61E01D5E2282DD7B00045833 /* Main.storyboard in Resources */,
+				61E01D79228305AE00045833 /* Data.json in Resources */,
 				61E01D752282FC2B00045833 /* secret.jpg in Resources */,
 				61E01D762282FC2B00045833 /* darknight.jpg in Resources */,
 			);
