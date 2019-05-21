@@ -8,52 +8,30 @@
 
 import UIKit
 
-class Cell: UICollectionViewCell {
+class TestCollectionViewCell: UICollectionViewCell {
     
-    static var identifier: String = "Cell"
-    var bountyInfo: BountyInfo?
-    
-    var imgView: UIImageView = UIImageView()
-    var shopLabel: UILabel = UILabel()
-    var textLabel: UILabel = UILabel()
-    var bountyLabel: UILabel = UILabel()
+    let imageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .green
         
-        let textLabel = UILabel(frame: .zero)
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        imgView.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.addSubview(textLabel)
-        contentView.addSubview(imgView)
-        NSLayoutConstraint.activate([
-            contentView.centerXAnchor.constraint(equalTo: imgView.centerXAnchor),
-            contentView.centerYAnchor.constraint(equalTo: imgView.centerYAnchor),
-            ])
-        self.textLabel = textLabel
-        self.reset()
+        configuer()
+        autolayout()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.reset()
+    private func configuer() {
+        contentView.addSubview(imageView)
     }
     
-    func reset() {
-        self.textLabel.textAlignment = .center
+    private func autolayout() {
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
-
-    func updateUI(_ bountyInfo: BountyInfo) {
-        let img = UIImage(named: "\(bountyInfo.name).jpg")
-        print(img)
-        imgView.image = img!
-        shopLabel.text = bountyInfo.name
-        bountyLabel.text = "\(bountyInfo.bounty)"
-    }
-    
 }
