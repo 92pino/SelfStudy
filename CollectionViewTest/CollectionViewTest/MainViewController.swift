@@ -31,12 +31,17 @@ class MainViewController: UIViewController {
     }
     
     func searchMethod() {
-        // Setup the Search Controller
+        // Setup Basic SearchController Setting
         searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Cafe"
+        searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
-        definesPresentationContext = true
+        
+        // Setup other SearchController Setting
+        
+        searchController.searchBar.placeholder = "Search Cafe"
+        
+        // 검색 할 때 배경을 어둡게 할지 밝게할지
+        searchController.obscuresBackgroundDuringPresentation = false
     }
     
     func searchBarIsEmpty() -> Bool {
@@ -90,6 +95,7 @@ extension MainViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "image", for: indexPath) as! TestCollectionViewCell
         
         cell.imageView.image = imageArray[indexPath.row]
+        print(bountyInfoList[indexPath.row].name)
         cell.titleLabel.text = bountyInfoList[indexPath.row].name
         cell.contentlabel.text = bountyInfoList[indexPath.row].desc
         
@@ -105,8 +111,16 @@ extension MainViewController : PinterestLayoutDelegate {
 }
 
 extension MainViewController: UISearchResultsUpdating {
-    // MARK: - UISearchResultsUpdating Delegate
+    
     func updateSearchResults(for searchController: UISearchController) {
-        // TODO
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+}
+
+extension MainViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+//        filterContentForSearchText(searchBar.text!)
     }
 }
