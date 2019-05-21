@@ -9,15 +9,17 @@
 import UIKit
 
 class BountyInfo {
+    var category: String
     var name: String
-    var bounty: Int
+    var desc: String
     
     var image: UIImage? {
         return UIImage(named: "\(name).jpg")
     }
     
-    init(name: String, bounty: Int) {
+    init(category: String, name: String, desc: String) {
+        self.category = category
         self.name = name
-        self.bounty = bounty
+        self.desc = desc
     }
 }

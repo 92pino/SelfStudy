@@ -15,6 +15,8 @@
 		618FB30A229310FD00249DDC /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FB309229310FD00249DDC /* TestCollectionViewCell.swift */; };
 		618FB30D22931C7A00249DDC /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FB30C22931C7A00249DDC /* data.swift */; };
 		618FB31022931CDD00249DDC /* FlexibleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FB30F22931CDD00249DDC /* FlexibleLayout.swift */; };
+		61B4BF592293F9B000D362E4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B4BF582293F9B000D362E4 /* Model.swift */; };
+		61B4BF5F2294158A00D362E4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B4BF5E2294158A00D362E4 /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		618FB309229310FD00249DDC /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		618FB30C22931C7A00249DDC /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 		618FB30F22931CDD00249DDC /* FlexibleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleLayout.swift; sourceTree = "<group>"; };
+		61B4BF582293F9B000D362E4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		61B4BF5E2294158A00D362E4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 				618FB30E22931CBA00249DDC /* Layouts */,
 				618FB30B22931AD900249DDC /* Model */,
 				618FB2F72293109E00249DDC /* AppDelegate.swift */,
+				61B4BF5E2294158A00D362E4 /* MainTabBarController.swift */,
 				618FB2F92293109E00249DDC /* MainViewController.swift */,
 				618FB309229310FD00249DDC /* TestCollectionViewCell.swift */,
 				618FB2FB2293109E00249DDC /* Main.storyboard */,
@@ -77,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				618FB30C22931C7A00249DDC /* data.swift */,
+				61B4BF582293F9B000D362E4 /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,6 +169,8 @@
 				618FB30A229310FD00249DDC /* TestCollectionViewCell.swift in Sources */,
 				618FB2FA2293109E00249DDC /* MainViewController.swift in Sources */,
 				618FB2F82293109E00249DDC /* AppDelegate.swift in Sources */,
+				61B4BF5F2294158A00D362E4 /* MainTabBarController.swift in Sources */,
+				61B4BF592293F9B000D362E4 /* Model.swift in Sources */,
 				618FB31022931CDD00249DDC /* FlexibleLayout.swift in Sources */,
 				618FB30D22931C7A00249DDC /* data.swift in Sources */,
 			);

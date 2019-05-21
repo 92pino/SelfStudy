@@ -11,9 +11,10 @@ import UIKit
 private struct Standard {
     static let space: CGFloat = 10
 }
-
 class MainViewController: UIViewController {
     
+    var cafeList = bountyInfoList
+    let searchController = UISearchController(searchResultsController: nil)
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: PinterestLayout())
     
     private var imageArray: [UIImage] = []
@@ -21,11 +22,37 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        title = "로고영역"
         
+        searchMethod()
         makeImage()
         configure()
         autoLayout()
     }
+    
+    func searchMethod() {
+        // Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Cafe"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        cafeList = cafeList.filter {
+            // lowercased : 소문자로 변환
+            return $0.name.lowercased().contains(searchText.lowercased())
+        }
+        
+        collectionView.reloadData()
+    }
+
     
     private func makeImage() {
         for i in 1...6 {
@@ -40,6 +67,7 @@ class MainViewController: UIViewController {
         }
         collectionView.dataSource = self
         collectionView.backgroundColor = .white
+        collectionView.contentInset = UIEdgeInsets(top: 23, left: 10, bottom: 10, right: 10)
         collectionView.register(TestCollectionViewCell.self, forCellWithReuseIdentifier: "image")
         view.addSubview(collectionView)
     }
@@ -62,6 +90,8 @@ extension MainViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "image", for: indexPath) as! TestCollectionViewCell
         
         cell.imageView.image = imageArray[indexPath.row]
+        cell.titleLabel.text = bountyInfoList[indexPath.row].name
+        cell.contentlabel.text = bountyInfoList[indexPath.row].desc
         
         return cell
     }
@@ -72,4 +102,11 @@ extension MainViewController : PinterestLayoutDelegate {
         return imageArray[indexPath.item].size.height
     }
     
+}
+
+extension MainViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO
+    }
 }
