@@ -11,43 +11,82 @@ import UIKit
 class ListViewController: UIViewController {
   
   let tableView = UITableView()
-  
-  var dataset = [
-    ("다크 나이트", "영웅물에 철학에 음악까지 더해져 예술이 되다.", "2008-09-04", 8.95, "darknight.jpg"),
-    ("호우시절", "때를 알고 내리는 좋은 비", "2009-10-08", 7.31, "rain.jpg"),
-    ("말할 수 없는 비밀", "여기서 너까지 다섯 걸음", "2015-05-07", 7.31, "secret.jpg")
-  ]
+  let moreView = UIView()
+  let moreBtn = UIButton(type: .system)
+  var page = 1
   
   lazy var list: [MovieVO] = {
     var datalist = [MovieVO]()
-    for (title, desc, opendate, rating, thumbnail) in self.dataset {
-      let mvo = MovieVO()
-      mvo.title = title
-      mvo.description = desc
-      mvo.opendate = opendate
-      mvo.rating = rating
-      mvo.thumbnail = thumbnail
-      
-      datalist.append(mvo)
-    }
     return datalist
   }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     configure()
+    callRestApi()
+  }
+  
+  func callRestApi(){
+    let url = "http://swiftapi.rubypaper.co.kr:2029/hoppin/movies?version=1&page=\(self.page)&count=10&genreId=&order=releasedateasc"
+    let apiURI: URL! = URL(string: url)
+    
+    let apidata = try! Data(contentsOf: apiURI)
+    
+    let log = NSString(data: apidata, encoding: String.Encoding.utf8.rawValue) ?? ""
+    NSLog("API Result=\( log )")
+    
+    do {
+      let apiDictionary = try JSONSerialization.jsonObject(with: apidata, options: []) as! NSDictionary
+      
+      // ⑤ 데이터 구조에 따라 차례대로 캐스팅하며 읽어온다.
+      let hoppin = apiDictionary["hoppin"] as! NSDictionary
+      let movies = hoppin["movies"] as! NSDictionary
+      let movie = movies["movie"] as! NSArray
+      
+//      print(NSDictionary.self)
+      
+      for row in movie {
+        let r = row as! NSDictionary
+        let mvo = MovieVO()
+        
+        mvo.title = r["title"] as? String
+        mvo.description = r["genreNames"] as? String
+        mvo.thumbnail = r["thumbnailImage"] as? String
+        mvo.detail = r["linkUrl"] as? String
+        mvo.rating = ((r["ratingAverage"] as! NSString).doubleValue)
+        
+        self.list.append(mvo)
+        self.tableView.reloadData()
+        
+        let totalCount = (hoppin["totalCount"] as? NSString)!.integerValue
+        if (self.list.count >= totalCount) {
+          self.moreBtn.isHidden = true
+        }
+      }
+    } catch {}
   }
   
   func configure(){
     title = "영화정보"
     
     view.addSubview(tableView)
+    view.addSubview(moreView)
+    moreView.addSubview(moreBtn)
     tableView.dataSource = self
     tableView.delegate = self
     tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "ListCell")
     
+    moreBtn.setTitle("더보기", for: .normal)
+    moreBtn.addTarget(self, action: #selector(more(_:)), for: .touchUpInside)
+    
     autoLayout()
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+  }
+  
+  @objc func more(_ sender: Any){
+    self.page += 1
+    self.callRestApi()
+    self.tableView.reloadData()
   }
   
   func autoLayout(){
@@ -56,8 +95,19 @@ class ListViewController: UIViewController {
     
     tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
     tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-    tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    
+    moreView.translatesAutoresizingMaskIntoConstraints = false
+    moreView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    moreView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    moreView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    moreView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    moreView.topAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
+    
+    moreBtn.translatesAutoresizingMaskIntoConstraints = false
+    moreBtn.centerXAnchor.constraint(equalTo: moreView.centerXAnchor).isActive = true
+    moreBtn.topAnchor.constraint(equalTo: moreView.topAnchor).isActive = true
+    moreBtn.bottomAnchor.constraint(equalTo: moreView.bottomAnchor).isActive = true
   }
   
   /*
@@ -86,13 +136,20 @@ extension ListViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
+    let row = self.list[indexPath.row]
+    
     let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as! CustomTableViewCell
     print(list[indexPath.row].title!)
     cell.title.text = list[indexPath.row].title!
     cell.desc.text = list[indexPath.row].description!
-    cell.opendate.text = list[indexPath.row].opendate!
+//    cell.opendate.text = list[indexPath.row].opendate!
     cell.rating.text = String(list[indexPath.row].rating!)
-    cell.thumbnail.image = UIImage(named: list[indexPath.row].thumbnail!)
+//    cell.thumbnail.image = UIImage(named: list[indexPath.row].thumbnail!)
+    
+    let url: URL! = URL(string: row.thumbnail!)
+    let imageData = try! Data(contentsOf: url)
+    cell.thumbnail.image = UIImage(data:imageData)
+    
     cell.accessoryType = .disclosureIndicator
     
     return cell
