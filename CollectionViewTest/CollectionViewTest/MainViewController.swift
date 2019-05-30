@@ -8,119 +8,150 @@
 
 import UIKit
 
-private struct Standard {
-    static let space: CGFloat = 10
-}
-class MainViewController: UIViewController {
+// 편의상 전역변수
+
+let imagesCount = 21
+
+var images: [UIImage] { /*...*/ return images }
+
+class MainViewController: UIViewController, UICollectionViewDataSource {
     
-    var cafeList = bountyInfoList
-    let searchController = UISearchController(searchResultsController: nil)
-    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: PinterestLayout())
-    
-    private var imageArray: [UIImage] = []
+    let collectionView = UICollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        title = "로고영역"
         
-        searchMethod()
-        makeImage()
-        configure()
+        collectionView.register(TestCollectionViewCell.self, forCellWithReuseIdentifier: "image")
+        view.addSubview(collectionView)
         autoLayout()
     }
     
-    func searchMethod() {
-        // Setup Basic SearchController Setting
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
-        navigationItem.searchController = searchController
-        
-        // Setup other SearchController Setting
-        
-        searchController.searchBar.placeholder = "Search Cafe"
-        
-        // 검색 할 때 배경을 어둡게 할지 밝게할지
-        searchController.obscuresBackgroundDuringPresentation = false
-    }
-    
-    func searchBarIsEmpty() -> Bool {
-        // Returns true if the text is empty or nil
-        return searchController.searchBar.text?.isEmpty ?? true
-    }
-    
-    func filterContentForSearchText(_ searchText: String) {
-        cafeList = cafeList.filter {
-            // lowercased : 소문자로 변환
-            return $0.name.lowercased().contains(searchText.lowercased())
-        }
-        
-        collectionView.reloadData()
-    }
-
-    
-    private func makeImage() {
-        for i in 1...6 {
-            let image = UIImage(named: "0\(i)")
-            imageArray.append(image!)
-        }
-    }
-    
-    private func configure() {
-        if let layout = collectionView.collectionViewLayout as? PinterestLayout {
-            layout.delegate = self
-        }
-        collectionView.dataSource = self
-        collectionView.backgroundColor = .white
-        collectionView.contentInset = UIEdgeInsets(top: 23, left: 10, bottom: 10, right: 10)
-        collectionView.register(TestCollectionViewCell.self, forCellWithReuseIdentifier: "image")
-        view.addSubview(collectionView)
-    }
-    
-    private func autoLayout() {
+    func autoLayout() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
-}
-
-extension MainViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageArray.count
+        
+        return bountyInfoList.count
+        
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "image", for: indexPath) as! TestCollectionViewCell
         
-        cell.imageView.image = imageArray[indexPath.row]
-        print(bountyInfoList[indexPath.row].name)
-        cell.titleLabel.text = bountyInfoList[indexPath.row].name
-        cell.contentlabel.text = bountyInfoList[indexPath.row].desc
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "image", for: indexPath) as! TestCollectionViewCell// Dequeueing생략
+        
+        
+        
+        cell.imageView.image = UIImage(named: bountyInfoList[indexPath.row].name)
+        
+        
         
         return cell
-    }
-}
-
-extension MainViewController : PinterestLayoutDelegate {
-    func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-        return imageArray[indexPath.item].size.height
+        
     }
     
 }
 
-extension MainViewController: UISearchResultsUpdating {
+
+
+class CollectionViewCell: UICollectionViewCell {
     
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        filterContentForSearchText(searchController.searchBar.text!)
-    }
+    @IBOutlet weak var imageView: UIImageView!
     
 }
 
-extension MainViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-//        filterContentForSearchText(searchBar.text!)
+class CollectionViewFlowLayout: UICollectionViewFlowLayout {
+    
+    var layoutCache: [UICollectionViewLayoutAttributes]? = nil
+    
+    
+    
+    override func prepare() {
+        
+        super.prepare()
+        
+        
+        
+        let width = (collectionView?.bounds.size.width ?? 375) / 2 - 5
+        
+        
+        
+        // attribute 만드는 작업은 한번만 합니다.
+        
+        guard layoutCache == nil else { return }
+        
+        
+        
+        var attrsList: [UICollectionViewLayoutAttributes] = []
+        
+        for (index, image) in images.enumerated() {
+            
+            let isOdd = index % 2 == 0
+            
+            let attrs = UICollectionViewLayoutAttributes(forCellWith: IndexPath(item: index, section: 0))
+            
+            let ratio = image.size.height / image.size.width
+            
+            let height = width * ratio
+            
+            
+            
+            var frame = CGRect(x: isOdd ? 0 : width + 10, y: 0, width: width, height: height)
+            
+            if index > 1 {
+                
+                let upperImage = attrsList[index-2]
+                
+                frame.origin.y = upperImage.frame.origin.y + upperImage.frame.size.height + 10
+                
+            }
+            
+            attrs.frame = frame
+            
+            
+            
+            attrsList.append(attrs)
+            
+        }
+        
+        
+        
+        layoutCache = attrsList
+        
     }
+    
+    
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        
+        guard let layoutCache = layoutCache else { return super.layoutAttributesForElements(in: rect) }
+        
+        
+        
+        var layoutAttributes = [UICollectionViewLayoutAttributes]()
+        
+        
+        
+        for attributes in layoutCache {
+            
+            if attributes.frame.intersects(rect) {
+                
+                layoutAttributes.append(attributes)
+                
+            }
+            
+        }
+        
+        
+        
+        return layoutAttributes
+        
+    }
+    
 }
