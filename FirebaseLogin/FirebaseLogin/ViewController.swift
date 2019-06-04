@@ -12,7 +12,8 @@ import GoogleSignIn
 
 class ViewController: UIViewController, GIDSignInUIDelegate {
     
-    
+    let firebaseAuth = Auth.auth()
+    let User = UserDefaults.standard
 
     let login: UITextField = {
         let tf = UITextField()
@@ -49,6 +50,13 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         return button
     }()
     
+    let signOut: UIButton = {
+        let button = UIButton()
+        button.setTitle("로그아웃", for: .normal)
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -58,12 +66,20 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         view.addSubview(btn)
         view.addSubview(signUp)
         view.addSubview(googleBtn)
+        view.addSubview(signOut)
         
         configue()
         
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if Auth.auth().currentUser == User {
+            
+        }
     }
     
     func configue() {
@@ -74,6 +90,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         signUp.addTarget(self, action: #selector(signUp(_:)), for: .touchUpInside)
         btn.addTarget(self, action: #selector(login(_:)), for: .touchUpInside)
         googleBtn.addTarget(self, action: #selector(googleLogin(_:)), for: .touchUpInside)
+//        signOut.addTarget(self, action: #selector(googleSignOut(_:)), for: .touchUpInside)
     }
     
     func autoLayout() {
@@ -100,6 +117,10 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         googleBtn.translatesAutoresizingMaskIntoConstraints = false
         googleBtn.topAnchor.constraint(equalTo: signUp.bottomAnchor, constant: 30).isActive = true
         googleBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        signOut.translatesAutoresizingMaskIntoConstraints = false
+        signOut.topAnchor.constraint(equalTo: googleBtn.bottomAnchor, constant: 30).isActive = true
+        signOut.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     @objc func login(_ sender: UIButton) {
@@ -109,6 +130,14 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
                 print("error")
                 return
             }
+            
+            guard let text = self.User.object(forKey: self.login.text ?? "") as? String else {
+                print("아이디 없음")
+                return
+            }
+            
+            self.User.set(self.login.text!, forKey: "email")
+            print(self.User)
             self.present(complete, animated: true)
             
             
