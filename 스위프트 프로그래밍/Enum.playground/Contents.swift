@@ -114,3 +114,59 @@ enum MainDish2 {
 
 var dinner2: MainDish2 = MainDish2.pasta(taste: PastaTaste.tomato)
 dinner2 = .pizza(dough: PizzaDough.cheeseCrust, topping: PizzaTopping.bacon)
+
+enum Computer {
+    case monitor(monitorIn: School)
+    case keyboard
+    case mouse
+    case power
+}
+
+var computer: Computer = Computer.keyboard
+print(computer)
+
+computer = .monitor(monitorIn: School.colleage)
+
+indirect enum ArithmeticExpression {
+    case number(Int)
+    case addition(ArithmeticExpression, ArithmeticExpression)
+    case multiplication(ArithmeticExpression, ArithmeticExpression)
+}
+
+let five = ArithmeticExpression.number(5)
+let four = ArithmeticExpression.number(4)
+let sum = ArithmeticExpression.addition(five, four)
+let final = ArithmeticExpression.multiplication(sum, ArithmeticExpression.number(2))
+
+func evaluate(_ expression: ArithmeticExpression) -> Int {
+    switch expression {
+    case .number(let value):
+        return value
+    case .addition(let left, let right):
+        return evaluate(left) + evaluate(right)
+    case .multiplication(let left, let right):
+        return evaluate(left) * evaluate(right)
+    }
+}
+
+let result: Int = evaluate(final)
+print("(5 + 4) * 2 = \(result)")
+
+let last: School = School.university
+
+switch last {
+case .primary:
+    print("최종 학력은 \(School.primary)입니다.")
+case .elementry:
+    print("최종 학력은 \(School.elementry)입니다.")
+case .middle:
+    print("최종 학력은 \(School.middle)입니다.")
+case .high:
+    print("최종 학력은 \(School.high)입니다.")
+case .colleage:
+    print("최종 학력은 \(School.colleage)입니다.")
+case .university:
+    print("최종 학력은 \(School.university)입니다.")
+case .graduate:
+    print("최종 학력은 \(School.graduate)입니다.")
+}
