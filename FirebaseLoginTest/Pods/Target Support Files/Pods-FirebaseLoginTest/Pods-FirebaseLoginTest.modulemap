@@ -1,6 +1,0 @@
-framework module Pods_FirebaseLoginTest {
-  umbrella header "Pods-FirebaseLoginTest-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -36,8 +36,6 @@ struct NextDepth: Codable {
 struct value: Codable {
     let value: Int
 }
-
-func getBeerApi() {
     
     let urlString = "https://api.punkapi.com/v2/beers/1"
     let url = URL(string: urlString)!
@@ -52,6 +50,3 @@ func getBeerApi() {
             beer.forEach { print($0) }
         }
     }.resume()
-}
-
-getBeerApi()
