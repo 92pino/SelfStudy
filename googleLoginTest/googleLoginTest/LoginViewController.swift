@@ -12,6 +12,13 @@ import GoogleSignIn
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
+    let label: UILabel = {
+        let label = UILabel()
+        label.text = "로그인 상태"
+        
+        return label
+    }()
+    
     let googleSignInButton: GIDSignInButton = {
         let button = GIDSignInButton()
         
@@ -32,6 +39,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         view.addSubview(signOutButton)
         GIDSignIn.sharedInstance().uiDelegate = self
         configure()
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
