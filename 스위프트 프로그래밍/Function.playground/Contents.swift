@@ -1,13 +1,19 @@
 import UIKit
 
-func hello(name: String) -> String {
-    return "Hello \(name)!"
+
+var getMail: String = ""
+
+func hello(_ name: String) -> String {
+    var name = "pino"
+    getMail = "Hello \(name)!"
+    return getMail
 }
 
-let helloJenny: String = hello(name: "Jenny")
-print(helloJenny)
+hello("james")
+print(getMail)
 
 func helloWorld() -> String {
+    
     return "Hello, world!"
 }
 
