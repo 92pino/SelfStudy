@@ -36,30 +36,90 @@ print(pinoPosition.point, pinoPosition.name)
 
 // 지연 저장 프로퍼티 (Lazy)
 
-struct CoordinatePointLazy {
+class DataImporter {
+    // DataImporter는 외부에서 데이터를 가져오는 클래스로 초기화 하는데 매우 많은 시간이 소요된다고 가정합니다.
+    var filename = "data.txt"
+    // 외부 파일명은 "data.txt"
+}
+
+class DataManager {
+    lazy var importer = DataImporter()
+    var data = [String]()
+}
+
+let manager = DataManager() // DataManager의 인스턴스를 생성 (이미 초기화가 되어있어서 init이 필요없음)
+manager.data.append("Some data") // DataManager의 data 배열에 "Some data"를 append시킨다.
+manager.data.append("Some more data") // DataManager의 data 배열에 "Some more data"를 또 append시킨다.
+// 하지만 DataImporter 인스턴스는 이 시점에 생성돼 있지 않습니다.
+
+print(manager.importer.filename)
+
+print(manager.data)
+
+struct CoordinatePoint2 {
     var x: Int = 0
     var y: Int = 0
 }
 
-class PositionLazy {
-    lazy var point: CoordinatePointLazy = CoordinatePointLazy()
+class Position2 {
+    lazy var point: CoordinatePoint2 = CoordinatePoint2()
     let name: String
     
     init(name: String) {
         self.name = name
     }
-    
 }
 
-let lazyPinoPoint: PositionLazy = PositionLazy(name: "pino")
-print(lazyPinoPoint.point.x)
-
+let pinoPosition2: Position2 = Position2(name: "pino")
+print(pinoPosition2.point)
 // 연산 프로퍼티
 // 특정 연산을 실행한 결과값
 // 클래스, 구조체, 열거형에 사용
 
+struct CoordinatePoint3 {
+    var x: Int
+    var y: Int
+    
+    var oppositePoint: CoordinatePoint3 {
+        get {
+            return CoordinatePoint3(x: -x, y: -y)
+        }
+        
+        set {
+            print("newValue :", newValue)
+            x = -newValue.x
+            y = -newValue.y
+        }
+    }
+}
 
+var pinoPosition3: CoordinatePoint3 = CoordinatePoint3(x: 10, y: 20)
 
+print(pinoPosition3)
+print(pinoPosition3.oppositePoint)
+pinoPosition3.oppositePoint = CoordinatePoint3(x: 15, y: 10)
+print(pinoPosition3)
+
+class Point {
+    var tempX: Int
+    init(tempX: Int) {
+        self.tempX = tempX
+    }
+    var x: Int {
+        get {
+            print("getValue :", x)
+            return x
+        }
+        
+        set {
+            print("newValue : ", newValue)
+            tempX = newValue * 2
+        }
+    }
+}
+var p: Point = Point(tempX: 1)
+p.x = 12
+print(p.tempX)
 // 타입 프로퍼티
 // 특정 타입에 사용되는 프로퍼티
 
