@@ -100,26 +100,78 @@ print(pinoPosition3.oppositePoint)
 pinoPosition3.oppositePoint = CoordinatePoint3(x: 15, y: 10)
 print(pinoPosition3)
 
-class Point {
-    var tempX: Int
-    init(tempX: Int) {
-        self.tempX = tempX
+//class Point {
+//    // 연산한 값을 저장할 변수 tempX에 임의의 값 지정
+//    // tempX의 값은 의미없는값???
+//    var tempX: Int = 5
+//    var x: Int {
+//        get {
+//            print("getValue :", x)
+//            return x
+//        }
+//
+//        set {
+//            print("newValue : ", newValue)
+//            tempX = newValue * 2
+//        }
+//    }
+//}
+//var p: Point = Point()
+//p.x = 12
+//print(p.tempX)
+
+class ComputedProperty {
+    var width = 5.0
+    var height = 5.0
+    
+    // lazyArea는 직접적으로 값을 바꾸지 않는 이상 초기 결과값을 계속 반환한다.
+    // computed는 작성 할 때마다 값을 다시 계산해서 결과값을 반환한다.
+    lazy var lazyArea = width * height
+    var area: Double {
+        return width * height
     }
-    var x: Int {
+    
+    // computed + stored
+    // 연산한 값을 저장할 변수
+    private var _koreanWon = 0.0
+    var wonToDollar: Double {
         get {
-            print("getValue :", x)
-            return x
+            return _koreanWon / 1136.5
         }
         
         set {
-            print("newValue : ", newValue)
-            tempX = newValue * 2
+            print("newValue :", newValue)
+            _koreanWon = newValue
         }
     }
 }
-var p: Point = Point(tempX: 1)
-p.x = 12
-print(p.tempX)
+
+var computed = ComputedProperty()
+computed.area
+computed.lazyArea
+
+computed.width = 10
+computed.area
+computed.lazyArea
+
+// computed.lazyArea 값을 바꾸면 바꾼 값으로 계속 호출
+// 값을 변경하지 않을 경우 기존 값 5.0 * 5.0 ==> 25로 계속 호출
+//computed.lazyArea = 50.0
+computed.lazyArea
+
+computed.width = 20
+computed.height = 20
+computed.area
+computed.lazyArea
+
+computed.width = 20
+computed.height = 20
+computed.area
+computed.lazyArea
+
+computed.wonToDollar
+computed.wonToDollar = 10000
+computed.wonToDollar
 // 타입 프로퍼티
 // 특정 타입에 사용되는 프로퍼티
 
