@@ -100,25 +100,25 @@ print(pinoPosition3.oppositePoint)
 pinoPosition3.oppositePoint = CoordinatePoint3(x: 15, y: 10)
 print(pinoPosition3)
 
-//class Point {
-//    // 연산한 값을 저장할 변수 tempX에 임의의 값 지정
-//    // tempX의 값은 의미없는값???
-//    var tempX: Int = 5
-//    var x: Int {
-//        get {
-//            print("getValue :", x)
-//            return x
-//        }
-//
-//        set {
-//            print("newValue : ", newValue)
-//            tempX = newValue * 2
-//        }
-//    }
-//}
-//var p: Point = Point()
-//p.x = 12
-//print(p.tempX)
+class Point {
+    // 연산한 값을 저장할 변수 tempX에 임의의 값 지정
+    // tempX의 값은 의미없는값???
+    var tempX: Int = 5
+    var x: Int {
+        get {
+            print("getValue :", x)
+            return x
+        }
+
+        set {
+            print("newValue : ", newValue)
+            tempX = newValue * 2
+        }
+    }
+}
+var p: Point = Point()
+p.x = 12
+print(p.tempX)
 
 class ComputedProperty {
     var width = 5.0
