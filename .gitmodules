@@ -1,0 +1,3 @@
+[submodule "AppStoreApiPractice/Alamofire"]
+	path = AppStoreApiPractice/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git
