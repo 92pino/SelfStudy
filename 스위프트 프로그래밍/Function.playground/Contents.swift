@@ -1,83 +1,45 @@
 import UIKit
 
-
-var getMail: String = ""
-
-func hello(_ name: String) -> String {
-    var name = "pino"
-    getMail = "Hello \(name)!"
-    return getMail
+/*
+func name(parameter...) -> returnType {
+ 
+   print("1234")
+ 
+   return returnType
+ 
 }
+ */
 
-hello("james")
-print(getMail)
+func hello(name: String) -> String {
+    return "Hello \(name)"
+}
+let helloJenny: String = hello(name: "Jenny")
+print(helloJenny)
 
 func helloWorld() -> String {
-    
-    return "Hello, world!"
+    return "Hello, workd!"
 }
 
-print(helloWorld())
+helloWorld()
 
 func sayHello(myName: String, yourName: String) -> String {
     return "Hello \(yourName)! I'm \(myName)"
 }
+sayHello(myName: "pino", yourName: "yagom")
 
-print(sayHello(myName: "pino", yourName: "raon"))
-
-func sayHelloWorld() {
-    print("hello world")
+func sayHello(from myName: String, to yourName: String) -> String {
+    return "Hello \(yourName)! I'm \(myName)"
 }
 
-func sayHello(from myName: String, to name: String) {
-    print("Hello \(name)! I'm \(myName)")
+sayHello(from: "pino", to: "yagom")
+
+func sayHello(_ name: String, _ times: Int) -> String {
+    var result: String = ""
+    
+    for _ in 0..<times {
+        result += "Hello \(name)!" + " "
+    }
+    
+    return result
 }
-sayHello(myName: "pino", yourName: "방문자")
-
-typealias CalculateTwoInts = (Int, Int) -> Int
-func addTwoInts(_ a: Int, _ b: Int) -> Int {
-    return a + b
-}
-
-func multiplyTwoInts(_ a: Int, _ b: Int) -> Int {
-    return a * b
-}
-
-func printMathResult(_ mathFunction: CalculateTwoInts, _ a: Int, _ b: Int) {
-    print("Result : \(mathFunction(a,b))")
-}
-printMathResult(addTwoInts, 3, 5)
-
-func chooseMathFunction(_ toAdd: Bool) -> CalculateTwoInts {
-    return toAdd ? addTwoInts : multiplyTwoInts
-}
-
-printMathResult(chooseMathFunction(false), 3, 5)
-
-typealias MoveFunc = (Int) -> Int
-
-func goRight(_ currentPosition: Int) -> Int {
-    return currentPosition + 1
-}
-
-func goLeft(_ currentPosition: Int) -> Int {
-    return currentPosition - 1
-}
-
-func functionForMove(_ shouldGoLeft: Bool) -> MoveFunc {
-    return shouldGoLeft ? goLeft : goRight
-}
-
-var position: Int = 3
-
-let moveToZero: MoveFunc = functionForMove(position > 0)
-print("원점으로")
-
-while position != 0 {
-    print("\(position)")
-    position = moveToZero(position)
-}
-print("원점도착")
-
-// 중첩함수로 만들어보자
-
+sayHello("pino", 2)

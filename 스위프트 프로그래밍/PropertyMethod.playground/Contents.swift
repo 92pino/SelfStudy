@@ -234,6 +234,23 @@ let myAccount: ForeignAccount = ForeignAccount()
 myAccount.credit = 1000
 myAccount.dollarValue = 2
 
+class OnCreate {
+    init() {
+        print("OnCreate!!")
+    }
+}
+
+class LazyTest {
+    var base = 0
+    lazy var late = OnCreate()
+    
+    init() {
+        print("lazy Test")
+    }
+}
+
+let lz = LazyTest()
+lz
 
 // 타입 프로퍼티
 // 특정 타입에 사용되는 프로퍼티

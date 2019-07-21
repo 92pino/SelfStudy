@@ -170,3 +170,16 @@ case .university:
 case .graduate:
     print("최종 학력은 \(School.graduate)입니다.")
 }
+
+var names: Set<String> = ["Joker", "Jenny", "Nova", "Pino"]
+print(names)
+
+nameLoop: for i in names {
+    print(i)
+}
+        
+while names.isEmpty == false {
+    print("Good bye \(names.removeFirst())")
+}
+
+print(names)
