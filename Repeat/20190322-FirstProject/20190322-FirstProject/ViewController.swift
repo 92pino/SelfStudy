@@ -19,52 +19,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let orangeView = UIView()
-    let label = UILabel()
-    let button = UIButton(type: .system)
-    let button2 = UIButton(type: .system)
-    let button3 = UIButton(type: .system)
+    let dummy = [test]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        // self란 viewController 자기 자신을 의미 (생략 가능)
-        // UIColor타입인데 UIColor가 생략됨 (enum)
-        
-        // 스토리보드에서 backgroundColor를 지정해도 viewDidLoad에서 지정한 backgroundColor가 우선적으로 실행
-        self.view.backgroundColor = UIColor.yellow
-        
-        orangeView.frame = CGRect(x: 30, y: 150, width: view.frame.width - 60, height: 300)
-        orangeView.backgroundColor = .orange
-        
-        label.frame = CGRect(x: 30, y: 500, width: view.frame.width - 60, height: 50)
-        label.text = "Hello, world"
-        label.textColor = .red
-        label.font = UIFont.boldSystemFont(ofSize: 27)
-        label.textAlignment = .left
-        button.setTitle("Action", for: .normal)
-        button.frame = CGRect(x: 10, y: 10, width: 100, height: 30)
-        button.setTitleColor(.black, for: .normal)
-        button.addTarget(self, action: #selector(buttonEvent(_:)), for: .touchUpInside)
-        
-        button2.setTitle("Button2", for: .normal)
-        button2.frame = CGRect(x: 10, y: 70, width: 100, height: 30)
-        button2.setTitleColor(.black, for: .normal)
-        button2.addTarget(self, action: #selector(buttonEvent(_:)), for: .touchUpInside)
-        
-        view.addSubview(orangeView)
-        view.addSubview(label)
-        orangeView.addSubview(button)
-        orangeView.addSubview(button2)
-        
+        testData()
+    }
+
+    private func testData() {
+        dummy.map { $0 }.flatMap { print($0) }
     }
     
-    // sender란? 어떤 객체가 이벤트를 발생시켜서 넘겼는지?
-    @objc func buttonEvent(_ sender: UIButton){
-        print("tapButton", sender)
-    }
-
-
 }
 
