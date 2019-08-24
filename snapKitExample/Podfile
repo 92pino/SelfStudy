@@ -7,5 +7,6 @@ target 'snapKitExample' do
 
   # Pods for snapKitExample
   pod 'SnapKit', '~> 5.0.0'
+  pod 'Kingfisher', '~> 5.0'
 
 end
