@@ -30,6 +30,7 @@ class TableView2Controller: UIViewController {
         super.viewDidLoad()
 
         initUI()
+        self.initTableView()
     }
     
     static func instance() -> TableView2Controller {
@@ -73,6 +74,7 @@ extension TableView2Controller: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell: TableView2Cell = tableView.dequeueReusableCell(withIdentifier: cellName) as? TableView2Cell {
+            cell.bind(model: self.dummyList[indexPath.row])
             
             return cell
         }
