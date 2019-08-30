@@ -1,5 +1,30 @@
 import UIKit
 
+// 함수형 프로그래밍 예씨
+func doSomething() {
+    print("do something")
+}
+
+func doAnotherThing() {
+    print("do another thing")
+}
+
+func excute(tasks: [() -> ()]) {
+    for task in tasks {
+        task()
+    }
+}
+
+excute(tasks: [doSomething, doAnotherThing])
+
+func sum(first: Int) -> ((Int) -> Int) {
+    return {
+        second in first + second
+    }
+}
+
+sum(first: 10)(5)
+
 /*
 func name(parameter...) -> returnType {
  
