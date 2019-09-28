@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="brf-q4-CUc">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Menu View Controller-->
+        <scene sceneID="8Dt-aD-Ejr">
+            <objects>
+                <viewController id="brf-q4-CUc" userLabel="Menu View Controller" customClass="MenuViewController" customModule="PirateHandbook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L1R-nN-lSh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JZN-Mm-LCr">
+                                <rect key="frame" x="4" y="75.000000000000028" width="366.5" height="470.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ezm-uW-PxA">
+                                        <rect key="frame" x="0.0" y="0.0" width="366.5" height="120.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ghost" translatesAutoresizingMaskIntoConstraints="NO" id="TQw-15-e5l">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="120.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="NPQ-gK-H3g">
+                                                <rect key="frame" x="150" y="79.5" width="216.5" height="41"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pirate Ghost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laE-tG-zbF">
+                                                        <rect key="frame" x="121.5" y="0.0" width="95" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formerly a Mighty Pirate TM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXW-ip-QXH">
+                                                        <rect key="frame" x="0.0" y="20.5" width="216.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="SW5-GA-kA0">
+                                        <rect key="frame" x="0.0" y="140.5" width="366.5" height="80"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Treasure" translatesAutoresizingMaskIntoConstraints="NO" id="ZpJ-mu-hzs">
+                                                <rect key="frame" x="0.0" y="0.0" width="122" height="80"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ring" translatesAutoresizingMaskIntoConstraints="NO" id="lt9-4Q-4B3">
+                                                <rect key="frame" x="122" y="0.0" width="122.5" height="80"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Golden Swift" translatesAutoresizingMaskIntoConstraints="NO" id="PSb-gN-ULR">
+                                                <rect key="frame" x="244.5" y="0.0" width="122" height="80"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="akn-Os-X1a">
+                                        <rect key="frame" x="0.0" y="240.5" width="366.5" height="230"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="treasure map" translatesAutoresizingMaskIntoConstraints="NO" id="Uq2-n6-5s7">
+                                                <rect key="frame" x="0.0" y="0.0" width="366.5" height="130"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dSx-EQ-gLD">
+                                                <rect key="frame" x="0.0" y="150" width="366.5" height="80"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCf-L7-9Ri">
+                                                        <rect key="frame" x="320.5" y="0.0" width="46" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vef-Bu-uBb">
+                                                        <rect key="frame" x="320.5" y="50" width="46" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1vX-mu-xp7"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yVS-U5-5xY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1124" y="67"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hO0-WX-c4W">
+            <objects>
+                <viewController id="94B-f3-hjg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZOD-gS-yV2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MiK-Bu-PgY">
+                                <rect key="frame" x="20" y="20" width="280" height="474.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="O8E-Mj-T2w" userLabel="Profile">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="120.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ghost" translatesAutoresizingMaskIntoConstraints="NO" id="Y7O-Aq-BIm">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="120.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="H0n-mG-Btd" userLabel="Description">
+                                                <rect key="frame" x="138" y="63" width="142" height="57.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pirate Ghost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTU-zh-Kq5">
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="31.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formerly a Mighty Priate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8B-cM-T1n">
+                                                        <rect key="frame" x="0.0" y="39.5" width="142" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="hRU-bj-Ftw" userLabel="Loot">
+                                        <rect key="frame" x="0.0" y="140.5" width="280" height="80"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Treasure" translatesAutoresizingMaskIntoConstraints="NO" id="xLm-8O-3Ja">
+                                                <rect key="frame" x="0.0" y="0.0" width="81" height="80"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ring" translatesAutoresizingMaskIntoConstraints="NO" id="MaM-SB-ol9">
+                                                <rect key="frame" x="100" y="0.0" width="81" height="80"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Golden Swift" translatesAutoresizingMaskIntoConstraints="NO" id="G2g-F9-GH2">
+                                                <rect key="frame" x="200" y="0.0" width="80" height="80"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="e2D-VO-0Bt">
+                                        <rect key="frame" x="0.0" y="240.5" width="280" height="234"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="treasure map" translatesAutoresizingMaskIntoConstraints="NO" id="Vwp-5B-7yC">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="130"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FgG-bf-5VL">
+                                                <rect key="frame" x="0.0" y="150" width="280" height="84"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EId-cn-qZf">
+                                                        <rect key="frame" x="194" y="0.0" width="86" height="38"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                                        <state key="normal" title="Button">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9o-hZ-KRB">
+                                                        <rect key="frame" x="194" y="46" width="86" height="38"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                                        <state key="normal" title="Button">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MiK-Bu-PgY" firstAttribute="leading" secondItem="a8n-o7-FYJ" secondAttribute="leading" constant="20" id="8d6-6D-Icd"/>
+                            <constraint firstItem="MiK-Bu-PgY" firstAttribute="top" secondItem="a8n-o7-FYJ" secondAttribute="top" id="He2-Zc-5sa"/>
+                            <constraint firstItem="a8n-o7-FYJ" firstAttribute="trailing" secondItem="MiK-Bu-PgY" secondAttribute="trailing" constant="20" id="lSD-p5-m9F"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="a8n-o7-FYJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kic-Xu-ClP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2489" y="67"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Golden Swift" width="80" height="80"/>
+        <image name="Ring" width="81" height="80"/>
+        <image name="Treasure" width="81" height="80"/>
+        <image name="ghost" width="120" height="120.5"/>
+        <image name="treasure map" width="300" height="130"/>
+    </resources>
+</document>
