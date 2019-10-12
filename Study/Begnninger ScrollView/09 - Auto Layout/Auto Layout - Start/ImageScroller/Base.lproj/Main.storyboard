@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dMf-wh-djy">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Axh-TU-BPl">
+            <objects>
+                <viewController id="dMf-wh-djy" customClass="ViewController" customModule="ImageScroller" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="soN-2W-yNh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shC-ip-HDX">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FWe-zH-yRY">
+                                        <rect key="frame" x="20" y="0.0" width="335" height="707"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vampire Toucan.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="L5j-gc-sQh">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="406"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vampire Toucan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D49-u5-BD1">
+                                                <rect key="frame" x="0.0" y="414" width="335" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3pN-Em-xrV">
+                                                <rect key="frame" x="0.0" y="442.33333333333326" width="335" height="200"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gmc-Br-BDs">
+                                                <rect key="frame" x="0.0" y="650.33333333333337" width="335" height="56.666666666666629"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toucan_musculature.png" translatesAutoresizingMaskIntoConstraints="NO" id="9ub-cS-db0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="106.33333333333333" height="56.666666666666664"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="9ub-cS-db0" secondAttribute="height" multiplier="15:8" id="Wj0-vW-rx1"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toucan_musculature.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mc9-yQ-70S">
+                                                        <rect key="frame" x="114.33333333333334" y="0.0" width="106.33333333333334" height="56.666666666666664"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Mc9-yQ-70S" secondAttribute="height" multiplier="15:8" id="sV6-IJ-lef"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toucan_musculature.png" translatesAutoresizingMaskIntoConstraints="NO" id="jZo-9v-W5Z">
+                                                        <rect key="frame" x="228.66666666666666" y="0.0" width="106.33333333333334" height="56.666666666666664"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="jZo-9v-W5Z" secondAttribute="height" multiplier="15:8" id="DzZ-7E-zNY"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="jZo-9v-W5Z" firstAttribute="width" secondItem="jZo-9v-W5Z" secondAttribute="height" multiplier="15:8" id="E5V-nZ-omQ"/>
+                                                    <constraint firstItem="jZo-9v-W5Z" firstAttribute="width" secondItem="jZo-9v-W5Z" secondAttribute="height" multiplier="15:8" id="O1I-nO-lQi"/>
+                                                    <constraint firstItem="Mc9-yQ-70S" firstAttribute="width" secondItem="Mc9-yQ-70S" secondAttribute="height" multiplier="15:8" id="xrb-vZ-XUM"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="FWe-zH-yRY" firstAttribute="width" secondItem="shC-ip-HDX" secondAttribute="width" constant="-40" id="L4Z-5n-9qb"/>
+                                    <constraint firstAttribute="bottom" secondItem="FWe-zH-yRY" secondAttribute="bottom" id="Sw7-HP-wi2"/>
+                                    <constraint firstItem="FWe-zH-yRY" firstAttribute="leading" secondItem="shC-ip-HDX" secondAttribute="leading" constant="20" id="ZB9-j0-Zqn"/>
+                                    <constraint firstItem="FWe-zH-yRY" firstAttribute="top" secondItem="shC-ip-HDX" secondAttribute="top" id="cjK-Ki-2rG"/>
+                                    <constraint firstAttribute="trailing" secondItem="FWe-zH-yRY" secondAttribute="trailing" constant="20" id="iep-n8-jH0"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="shC-ip-HDX" firstAttribute="bottom" secondItem="HHe-Ic-xBo" secondAttribute="bottom" id="08O-pK-3dR"/>
+                            <constraint firstAttribute="trailing" secondItem="shC-ip-HDX" secondAttribute="trailing" id="9l1-x7-xfe"/>
+                            <constraint firstItem="shC-ip-HDX" firstAttribute="leading" secondItem="soN-2W-yNh" secondAttribute="leading" id="Ark-vm-OjY"/>
+                            <constraint firstItem="L5j-gc-sQh" firstAttribute="height" secondItem="soN-2W-yNh" secondAttribute="height" multiplier="0.5" id="qlY-mN-1N1"/>
+                            <constraint firstItem="shC-ip-HDX" firstAttribute="top" secondItem="HHe-Ic-xBo" secondAttribute="top" id="xxZ-1K-TS8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HHe-Ic-xBo"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G6u-v6-NaD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="120.8" y="87.192118226600982"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Vampire Toucan.jpg" width="401.22000122070312" height="571"/>
+        <image name="toucan_musculature.png" width="500" height="500"/>
+    </resources>
+</document>

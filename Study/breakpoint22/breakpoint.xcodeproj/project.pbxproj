@@ -22,7 +22,6 @@
 		1FA73AF5233CDD41002546E7 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA73AF4233CDD41002546E7 /* DataService.swift */; };
 		61371D51234CBAA600D42717 /* CreateGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61371D50234CBAA600D42717 /* CreateGroupsVC.swift */; };
 		61371D53234CBD4D00D42717 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61371D52234CBD4D00D42717 /* UserCell.swift */; };
-		61371D57234F473B00D42717 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 61371D56234F473B00D42717 /* GoogleService-Info.plist */; };
 		61371D59234F62C600D42717 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61371D58234F62C600D42717 /* GroupCell.swift */; };
 		61BE431D2346167D00567029 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BE431C2346167D00567029 /* MeVC.swift */; };
 		61BE432023461AF900567029 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BE431F23461AF900567029 /* CreatePostVC.swift */; };
@@ -50,7 +49,6 @@
 		377E47A9D5B631197C650A68 /* Pods-breakpoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakpoint.debug.xcconfig"; path = "Target Support Files/Pods-breakpoint/Pods-breakpoint.debug.xcconfig"; sourceTree = "<group>"; };
 		61371D50234CBAA600D42717 /* CreateGroupsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupsVC.swift; sourceTree = "<group>"; };
 		61371D52234CBD4D00D42717 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
-		61371D56234F473B00D42717 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		61371D58234F62C600D42717 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		61BE431C2346167D00567029 /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		61BE431F23461AF900567029 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 		1FA73AD8233CD765002546E7 /* breakpoint */ = {
 			isa = PBXGroup;
 			children = (
-				61371D56234F473B00D42717 /* GoogleService-Info.plist */,
 				1FA73AF1233CD847002546E7 /* Services */,
 				1FA73AF0233CD80E002546E7 /* Extension */,
 				1FA73AEF233CD7ED002546E7 /* Model */,
@@ -237,7 +234,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FA73AE6233CD766002546E7 /* LaunchScreen.storyboard in Resources */,
-				61371D57234F473B00D42717 /* GoogleService-Info.plist in Resources */,
 				1FA73AE3233CD766002546E7 /* Assets.xcassets in Resources */,
 				1FA73AE1233CD766002546E7 /* Main.storyboard in Resources */,
 			);
