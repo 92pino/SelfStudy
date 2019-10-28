@@ -18,12 +18,6 @@ class AddItemTableViewController: UIViewController {
         return tableView
     }()
     
-    let textField: UITextField = {
-        let tf = UITextField()
-        
-        return tf
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
